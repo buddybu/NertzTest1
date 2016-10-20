@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NertzTest1", "NertzTest1\NertzTest1.csproj", "{2235F889-4DB5-4093-B2D9-4A83CD640748}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StandardDeck", "Deck\StandardDeck.csproj", "{42D94D38-8848-4663-9C2F-C321F1DB80DD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StandardDeck", "StandardDeck\StandardDeck.csproj", "{42D94D38-8848-4663-9C2F-C321F1DB80DD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardPlayer", "Player\CardPlayer.csproj", "{5C09D1FF-57BD-4233-A3D9-8942A4504D80}"
 EndProject

@@ -43,7 +43,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Deck\StandardDeck.csproj">
+    <ProjectReference Include="..\StandardDeck\StandardDeck.csproj">
       <Project>{42d94d38-8848-4663-9c2f-c321f1db80dd}</Project>
       <Name>StandardDeck</Name>
     </ProjectReference>
