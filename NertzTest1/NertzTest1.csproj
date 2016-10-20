@@ -54,9 +54,9 @@
     <Compile Include="Model\Cards\CardStack.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Deck\Deck.csproj">
+    <ProjectReference Include="..\Deck\StandardDeck.csproj">
       <Project>{42d94d38-8848-4663-9c2f-c321f1db80dd}</Project>
-      <Name>Deck</Name>
+      <Name>StandardDeck</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
