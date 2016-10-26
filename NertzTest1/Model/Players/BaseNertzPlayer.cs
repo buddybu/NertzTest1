@@ -1,4 +1,4 @@
-﻿using CardDeck;
+﻿using StandardCardDeck;
 using System;
 
 namespace NertzTest1.Model.Players

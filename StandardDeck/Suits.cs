@@ -4,17 +4,17 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
-namespace CardDeck
+namespace StandardCardDeck
 {
     public enum Suits
     {
-        [CardDeck.Description("♠")]
+        [StandardCardDeck.Description("♠")]
         Spades=0,
-        [CardDeck.Description("♥")]
+        [StandardCardDeck.Description("♥")]
         Clubs = 1,
-        [CardDeck.Description("♦")]
+        [StandardCardDeck.Description("♦")]
         Diamonds = 2,
-        [CardDeck.Description("♣")]
+        [StandardCardDeck.Description("♣")]
         Hearts = 3,
     }
 }

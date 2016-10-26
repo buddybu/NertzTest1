@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CardDeck;
+using StandardCardDeck;
 
 namespace NertzTest1
 {

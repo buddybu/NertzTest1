@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CardDeck;
+using StandardCardDeck;
 using NertzTest1.Model.Players;
 
 namespace NertzTest1
@@ -76,7 +76,7 @@ namespace NertzTest1
                         cardStack.AddCard(card, owner);
                         
                         // move from open stacks to completed stacks
-                        if (card.CardValue == CardDeck.Values.King)
+                        if (card.CardValue == StandardCardDeck.Values.King)
                         {
                             stacks.Remove(cardStack);
                             completedStacks.Add(cardStack);

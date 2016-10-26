@@ -4,35 +4,35 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
-namespace CardDeck
+namespace StandardCardDeck
 {
     public enum Values
     {
-        [CardDeck.Description("A")]
+        [StandardCardDeck.Description("A")]
         Ace=1,
-        [CardDeck.Description("2")]
+        [StandardCardDeck.Description("2")]
         Two = 2,
-        [CardDeck.Description("3")]
+        [StandardCardDeck.Description("3")]
         Three = 3,
-        [CardDeck.Description("4")]
+        [StandardCardDeck.Description("4")]
         Four = 4,
-        [CardDeck.Description("5")]
+        [StandardCardDeck.Description("5")]
         Five = 5,
-        [CardDeck.Description("6")]
+        [StandardCardDeck.Description("6")]
         Six = 6,
-        [CardDeck.Description("7")]
+        [StandardCardDeck.Description("7")]
         Seven = 7,
-        [CardDeck.Description("8")]
+        [StandardCardDeck.Description("8")]
         Eight = 8,
-        [CardDeck.Description("9")]
+        [StandardCardDeck.Description("9")]
         Nine = 9,
-        [CardDeck.Description("10")]
+        [StandardCardDeck.Description("10")]
         Ten = 10,
-        [CardDeck.Description("J")]
+        [StandardCardDeck.Description("J")]
         Jack = 11,
-        [CardDeck.Description("Q")]
+        [StandardCardDeck.Description("Q")]
         Queen = 12,
-        [CardDeck.Description("K")]
+        [StandardCardDeck.Description("K")]
         King = 13,
 
     }

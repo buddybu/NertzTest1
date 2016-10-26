@@ -1,4 +1,4 @@
-﻿using CardDeck;
+﻿using StandardCardDeck;
 using System;
 using System.Collections.Generic;
 
