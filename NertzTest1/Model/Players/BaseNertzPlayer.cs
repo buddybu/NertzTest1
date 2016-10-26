@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using CardDeck;
+﻿using CardDeck;
+using System;
 
 namespace NertzTest1.Model.Players
 {
-    class BasePlayer
+    class BaseNertzPlayer
     {
         private string name;
         private bool inGame;
@@ -28,7 +25,7 @@ namespace NertzTest1.Model.Players
             }
         }
 
-        public BasePlayer(string name, Random random, Game gameInProgress)
+        public BaseNertzPlayer(string name, Random random, Game gameInProgress)
         {
             this.Name = name;
             this.random = random;

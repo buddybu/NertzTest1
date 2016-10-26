@@ -4,38 +4,20 @@ using System.Collections.Generic;
 
 namespace CardPlayer
 {
-    public class CardPlayer
+    public class CardPlayer : BasePlayer
     {
-        private string name;
-        private bool inGame;
         private Random random;
         private Deck cardDeck;
 
-        public string Name { get; set; }
 
-        public CardPlayer(string name, bool inGame = false)
+        public CardPlayer(string name, bool inGame = false) :
+            base(name, inGame)
         {
-            this.Name = name;
-            this.inGame = inGame;
+            
             random = new Random((int)System.DateTime.Now.Ticks);
             cardDeck = new Deck(random);
         }
 
-        public bool JoinGame()
-        {
-            if (inGame)
-                return false;
-            else
-            {
-                inGame = true;
-                return true;
-            }
-        }
-
-        public bool IsInGame()
-        {
-            return inGame;
-        }
 
         public virtual void Shuffle(int count = 1)
         {

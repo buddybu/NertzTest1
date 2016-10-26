@@ -24,7 +24,7 @@ namespace NertzTest1
         /// </summary>
         /// <param name="card"></param>
         /// <param name="player"></param>
-        public bool StartStack(Card card, Player player)
+        public bool StartStack(Card card, HumanPlayer player)
         {
             bool stackStarted = false;
             if (card.CardValue == Values.Ace)
@@ -64,7 +64,7 @@ namespace NertzTest1
         /// <param name="stack"></param>
         /// <param name="card"></param>
         /// <param name="owner"></param>
-        public void AddCardToStack(CardStack stack, Card card, Player owner)
+        public void AddCardToStack(CardStack stack, Card card, HumanPlayer owner)
         {
             foreach(CardStack cardStack in stacks)
             {

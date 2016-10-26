@@ -10,17 +10,17 @@ namespace NertzTest1
     class StackCard
     {
         private Card _card;
-        private Player _owner;
+        private HumanPlayer _owner;
 
         public Card Card { get { return _card; } }
-        public Player Owner { get { return _owner; } }
+        public HumanPlayer Owner { get { return _owner; } }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="card"></param>
         /// <param name="owner"></param>
-        public StackCard(Card card, Player owner)
+        public StackCard(Card card, HumanPlayer owner)
         {
             _card = card;
             _owner = owner;

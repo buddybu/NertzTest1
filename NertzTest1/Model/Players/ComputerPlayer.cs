@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace NertzTest1.Model.Players
 {
-    class Computer : BasePlayer
+    class ComputerPlayer : BaseNertzPlayer
     {
         // speed of shuffling, dealing, playing cards...  delay time in seconds
         private int speed;
@@ -15,7 +15,7 @@ namespace NertzTest1.Model.Players
         public int Speed { get; }
         public int ShuffleCount { get; }
 
-        public Computer(string name, Random random, Game gameInProgress, int speed, int shuffleCount) :
+        public ComputerPlayer(string name, Random random, Game gameInProgress, int speed, int shuffleCount) :
             base(name, random, gameInProgress)
         {
             this.speed = speed;

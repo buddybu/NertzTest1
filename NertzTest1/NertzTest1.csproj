@@ -43,10 +43,10 @@
   <ItemGroup>
     <Compile Include="Model\Cards\StackCard.cs" />
     <Compile Include="Model\Cards\CardSlot.cs" />
-    <Compile Include="Model\Players\BasePlayer.cs" />
-    <Compile Include="Model\Players\Computer.cs" />
+    <Compile Include="Model\Players\BaseNertzPlayer.cs" />
+    <Compile Include="Model\Players\ComputerPlayer.cs" />
     <Compile Include="View\Game.cs" />
-    <Compile Include="Model\Players\Player.cs" />
+    <Compile Include="Model\Players\HumanPlayer.cs" />
     <Compile Include="Model\Cards\NertzHand.cs" />
     <Compile Include="ViewModel\PlayingArea.cs" />
     <Compile Include="View\Program.cs" />

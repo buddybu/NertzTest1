@@ -13,14 +13,14 @@ namespace NertzTest1
 
         public bool Flipped { get; private set; }
 
-        public CardStack(Card card, Player owner)
+        public CardStack(Card card, HumanPlayer owner)
         {
             cardsInStack = new List<StackCard>();
             AddCard(card, owner);
             Flipped = false;
         }
 
-        public void AddCard(Card card, Player owner)
+        public void AddCard(Card card, HumanPlayer owner)
         {
             cardsInStack.Add(new StackCard(card, owner));
             if (card.CardValue == Values.King)
@@ -42,7 +42,7 @@ namespace NertzTest1
             return cardsInStack[cardsInStack.Count-1].Card.CardValue;
         }
 
-        public int PlayerCardCount(Player player)
+        public int PlayerCardCount(HumanPlayer player)
         {
             int cardCount = 0;
             foreach(StackCard card in cardsInStack)

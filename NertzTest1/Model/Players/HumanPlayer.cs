@@ -7,9 +7,9 @@ using CardDeck;
 
 namespace NertzTest1.Model.Players
 {
-     class Player : BasePlayer
+     class HumanPlayer : BaseNertzPlayer
     {
-        public Player(string name, Random random, Game gameInProgress) :
+        public HumanPlayer(string name, Random random, Game gameInProgress) :
             base(name, random, gameInProgress)
         {
         }

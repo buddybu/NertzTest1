@@ -9,7 +9,7 @@ namespace NertzTest1
 {
     class Game : INotifyPropertyChanged
     {
-        private List<Player> players;
+        private List<HumanPlayer> players;
 
         private PlayingArea playingArea;
         private Random random;
@@ -25,7 +25,7 @@ namespace NertzTest1
         public Game()
         {
             random = new Random((int)DateTime.Now.Ticks);
-            players = new List<Player>();
+            players = new List<HumanPlayer>();
             ResetGame();
         }
 
@@ -34,10 +34,10 @@ namespace NertzTest1
             var found = false;
             if (playerName != null && playerName.Length > 0)
             {
-                Player newPlayer = new Player(playerName, random, this);
+                HumanPlayer newPlayer = new HumanPlayer(playerName, random, this);
                 if (players.Count > 0)
                 {
-                    foreach (Player player in players)
+                    foreach (HumanPlayer player in players)
                     {
                         if (player.Name.CompareTo(playerName) == 0)
                         {
@@ -61,7 +61,7 @@ namespace NertzTest1
         /// </summary>
         private void Deal()
         {
-            foreach (Player player in players)
+            foreach (HumanPlayer player in players)
             {
                 player.Deal();
             }
