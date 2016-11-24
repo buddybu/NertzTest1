@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="BasePlayer.cs" />
     <Compile Include="CardPlayer.cs" />
+    <Compile Include="NertzPlayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

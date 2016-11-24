@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NertzTest1.Model.Players;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,11 +18,19 @@ namespace NertzTest1
 
             bud = new Game();
 
-            bud.AddPlayer("Ed");
-            bud.AddPlayer("Bob");
-            bud.AddPlayer("Joe");
+            ComputerPlayer ed = new ComputerPlayer("ed", random, bud, 2, 4);
+            ComputerPlayer bob = new ComputerPlayer("bob", random, bud, 3, 6);
+            ComputerPlayer joe = new ComputerPlayer("joe", random, bud, 1, 5);
+
+            bud.AddPlayer(ed);
+            bud.AddPlayer(bob);
+            bud.AddPlayer(joe);
 
             bud.StartGame();
+
+            ed.FlipThreeCards();
+            bob.FlipThreeCards();
+            joe.FlipThreeCards();
 
             string description = bud.DescribePlayerHands();
             Console.WriteLine(description.ToCharArray(), 0, description.Length);

@@ -9,8 +9,8 @@ namespace NertzTest1.Model.Players
 {
      class HumanPlayer : BaseNertzPlayer
     {
-        public HumanPlayer(string name, Random random, Game gameInProgress) :
-            base(name, random, gameInProgress)
+        public HumanPlayer(string name, Random random, int shuffleCount, Game gameInProgress) :
+            base(name, random, shuffleCount, gameInProgress)
         {
         }
 

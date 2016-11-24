@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using StandardCardDeck;
 
-namespace NertzTest1
+namespace NertzTest1.Model.Cards
 {
-    class NertzHand
+    class NertzHand : Deck
     {
-        Deck deckOfCards;
+        //Deck deckOfCards;
         Deck flippedDeckOfCards;
 
         private List<Card> nertzPile;
@@ -34,34 +34,34 @@ namespace NertzTest1
         public Card CardSlot3 { get; private set; }
         public Card CardSlot4 { get; private set; }
 
-        public NertzHand(Deck cards)
+        public NertzHand(Random random) : base(random)
         {
-            deckOfCards = cards;
-            deckOfCards.Shuffle();
+            //deckOfCards = cards;
+            //deckOfCards.Shuffle();
             flippedDeckOfCards = new Deck(new Card[] { });
             nertzPile = new List<Card> { };
         }
 
-        public void Shuffle()
-        {
-            deckOfCards.Shuffle();
-        }
+        //public void Shuffle()
+        //{
+        //    base.Shuffle();
+        //}
 
-        public void Deal()
+        public void NertzDeal()
         { 
             for (int i = 0; i < 13; i++)
-                nertzPile.Add(deckOfCards.Deal(0));
+                nertzPile.Add(Deal(0));
 
-            CardSlot1 = deckOfCards.Deal(0);
-            CardSlot2 = deckOfCards.Deal(0);
-            CardSlot3 = deckOfCards.Deal(0);
-            CardSlot4 = deckOfCards.Deal(0);
+            CardSlot1 = Deal(0);
+            CardSlot2 = Deal(0);
+            CardSlot3 = Deal(0);
+            CardSlot4 = Deal(0);
         }
 
         public void RotateOneCard()
         {
-            if (flippedDeckOfCards.Count == 0 && deckOfCards.Count > 1) 
-                deckOfCards.Add(deckOfCards.Deal(0));
+            if (flippedDeckOfCards.Count == 0 && Count > 1) 
+                Add(Deal(0));
         }
 
         public Card FlippedDeckTopCard()
@@ -85,28 +85,28 @@ namespace NertzTest1
                     if (CardSlot1 == null)
                     {
                         CardSlot1 = nertzPile[0];
-                        nertzPile.Remove(nertzPile[0]);
+                        RemoveNertzPileCard();
                     }
                     break;
                 case CardSlot.SlotTwo:
                     if (CardSlot2 == null)
                     {
                         CardSlot2 = nertzPile[0];
-                        nertzPile.Remove(nertzPile[0]);
+                        RemoveNertzPileCard();
                     }
                     break;
                 case CardSlot.SlotThree:
                     if (CardSlot3 == null)
                     {
                         CardSlot3 = nertzPile[0];
-                        nertzPile.Remove(nertzPile[0]);
+                        RemoveNertzPileCard();
                     }
                     break;
                 case CardSlot.SlotFour:
                     if (CardSlot4 == null)
                     {
                         CardSlot4 = nertzPile[0];
-                        nertzPile.Remove(nertzPile[0]);
+                        RemoveNertzPileCard();
                     }
                     break;
             }
@@ -132,35 +132,43 @@ namespace NertzTest1
         {
             bool nertzPileEmpty = false;
 
-            switch(slotNum)
+            // if removing the nertz pile card, remove it directly
+            if (slotNum == CardSlot.NertzPile)
             {
-                case CardSlot.NertzPile:
-                    nertzPileEmpty = RemoveNertzPileCard();
-                    break;
+                nertzPileEmpty = RemoveNertzPileCard();
+            }
 
-                case CardSlot.SlotOne:
-                    CardSlot1 = null;
-                    if (nertzPile.Count == 1)
-                        nertzPileEmpty = true;
-                    break;
+            // must be one of the slots
+            // clear the slot and check if the nertz pile
+            // is empty
+            else
+            {
+                if (nertzPile.Count > 1)
+                {
+                    switch (slotNum)
+                    {
+                        case CardSlot.SlotOne:
+                            CardSlot1 = null;
+                            break;
 
-                case CardSlot.SlotTwo:
-                    CardSlot2 = null;
-                    if (nertzPile.Count == 1)
-                        nertzPileEmpty = true;
-                    break;
+                        case CardSlot.SlotTwo:
+                            CardSlot2 = null;
+                            break;
 
-                case CardSlot.SlotThree:
-                    CardSlot3 = null;
-                    if (nertzPile.Count == 1)
-                        nertzPileEmpty = true;
-                    break;
+                        case CardSlot.SlotThree:
+                            CardSlot3 = null;
+                            break;
 
-                case CardSlot.SlotFour:
-                    CardSlot4 = null;
-                    if (nertzPile.Count == 1)
-                        nertzPileEmpty = true;
-                    break;
+                        case CardSlot.SlotFour:
+                            CardSlot4 = null;
+                            break;
+                    }
+                    NertzPileCardToSlot(slotNum);
+                }
+
+                if (nertzPile.Count == 0)
+                    nertzPileEmpty = true;
+
             }
 
             return nertzPileEmpty;
@@ -169,55 +177,32 @@ namespace NertzTest1
 
         public void DrawThreeCards()
         {
-            Card card;
             int drawCount;
 
-            if (deckOfCards.Count == 0)
+            if (Count == 0)
             {
-                deckOfCards = flippedDeckOfCards;
-                flippedDeckOfCards = new Deck(new Card[] { });
-            }
+
+                while (flippedDeckOfCards.Count > 0)
+                {
+                    Add(flippedDeckOfCards.Deal());
+                }
+            }   
 
             // 3 or more cards left on deck, flip 3 cards
-            if (deckOfCards.Count >= 3)
+            if (Count >= 3)
             {
                 drawCount = 3;
             }
             else
             {
-                drawCount = deckOfCards.Count;
+                drawCount = Count;
             }
 
             while (drawCount-- > 0)
             {
-                flippedDeckOfCards.Add(deckOfCards.Deal());
+                flippedDeckOfCards.Add(Deal());
             }
 
-            //if (deckOfCards.Count >= 3)
-            //{
-            //    card = deckOfCards.Deal();
-            //    flippedDeckOfCards.Add(card);
-            //    card = deckOfCards.Deal();
-            //    flippedDeckOfCards.Add(card);
-            //    card = deckOfCards.Deal();
-            //    flippedDeckOfCards.Add(card);
-            //}
-
-            //// only two cards left on deck, flip them one at a time
-            //else if (deckOfCards.Count == 2)
-            //{
-            //    card = deckOfCards.Deal();
-            //    flippedDeckOfCards.Add(card);
-            //    card = deckOfCards.Deal();
-            //    flippedDeckOfCards.Add(card);
-            //}
-
-            //// only one card left on deck, flip it
-            //else
-            //{
-            //    card = deckOfCards.Deal();
-            //    flippedDeckOfCards.Add(card);
-            //}
         }
     }
 }

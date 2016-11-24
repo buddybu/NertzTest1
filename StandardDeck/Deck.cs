@@ -48,7 +48,7 @@ namespace StandardCardDeck
             return cardToDeal;
         }
 
-        public Card Deal()
+        virtual public Card Deal()
         {
             return Deal(0);
         }

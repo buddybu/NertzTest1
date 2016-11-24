@@ -1,10 +1,12 @@
-﻿using StandardCardDeck;
+﻿using NertzTest1.Model.Cards;
+using StandardCardDeck;
 using System;
 
 namespace NertzTest1.Model.Players
 {
     class BaseNertzPlayer
     {
+        private int shuffleCount;
         private string name;
         private bool inGame;
         private NertzHand nertzHand;
@@ -25,19 +27,21 @@ namespace NertzTest1.Model.Players
             }
         }
 
-        public BaseNertzPlayer(string name, Random random, Game gameInProgress)
+        public BaseNertzPlayer(string name, Random random, int shuffleCount, Game gameInProgress)
         {
             this.Name = name;
             this.random = random;
             this.cardDeck = new Deck(random);
             this.gameInProgress = gameInProgress;
             this.nertzHand = new NertzHand(cardDeck);
+            this.shuffleCount = shuffleCount;
 
             gameInProgress.AddProgress(Name + " has joined the game.");
         }
 
-        public virtual void Shuffle(int count=1)
+        public virtual void Shuffle()
         {
+            int count = shuffleCount;
             if (count == 0)
                 count = 1;
             while (count-- > 0)
@@ -52,7 +56,10 @@ namespace NertzTest1.Model.Players
 
         public virtual Card GetNertzTopCard()
         {
-            return nertzHand.NertzPile;
+            if (nertzHand.NertzPileCount > 0)
+                return nertzHand.NertzPile;
+            else
+                return null;
         }
 
         public virtual Card FlipThreeCards()

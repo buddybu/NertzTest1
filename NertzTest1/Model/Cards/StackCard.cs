@@ -5,7 +5,7 @@ using System.Text;
 using StandardCardDeck;
 using NertzTest1.Model.Players;
 
-namespace NertzTest1
+namespace NertzTest1.Model.Cards
 {
     class StackCard
     {
